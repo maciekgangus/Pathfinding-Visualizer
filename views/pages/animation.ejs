@@ -1,0 +1,82 @@
+<div class="container-fluid d-flex">
+    <!-- Plansza na labirynt (2/3 szerokości) -->
+    <div class="col-lg-8 d-flex align-items-center justify-content-center border-end bg-white">
+        <div id="mazeCanvasContainer">
+            <canvas id="mazeCanvas"></canvas>
+        </div>
+    </div>
+
+    <!-- Menu dodatkowe (1/3 szerokości) -->
+    <div class="col-lg-4 p-4 bg-light ">
+        <h2 class="text-center mb-4">Opcje</h2>
+
+        <!-- Generowanie labiryntu -->
+        <div class="mb-4">
+            <button id="generateMazeBtn" class="btn btn-primary w-100 py-2">Generuj Labirynt</button>
+        </div>
+
+        <!-- Wybór siatki -->
+        <div class="mb-4">
+            <label class="form-label">Wybierz siatkę:</label>
+            <div class="d-flex gap-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridSize" id="grid50x50" value="51" checked>
+                    <label class="form-check-label" for="grid50x50">50x50</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridSize" id="grid70x70" value="71">
+                    <label class="form-check-label" for="grid70x70">70x70</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wybór koloru ścian -->
+        <div class="mb-4 m-auto">
+            <label for="wallColor" class="form-label">Wybierz kolor ścian:</label>
+            <input type="color" id="wallColor" class="form-control form-control-color d-inline" value="#000000">
+        </div>
+
+        <!-- Przycisk dla każdego algorytmu -->
+        <div class="mb-4 col-8 m-auto">
+            <label class="form-label">Algorytmy wyszukiwania:</label>
+            <div class="d-flex flex-column gap-2">
+                <button id="runDFSBtn" class="btn btn-success w-100 py-2">Uruchom DFS</button>
+                <button id="runBFSBtn" class="btn btn-success w-100 py-2">Uruchom BFS</button>
+                <button id="runDijkstraBtn" class="btn btn-success w-100 py-2">Uruchom Dijkstra</button>
+                <button id="runAStarBtn" class="btn btn-success w-100 py-2">Uruchom A*</button>
+            </div>
+        </div>
+
+        <% if (user) { %>
+            <div class="mb-4" id="saveContainer">
+                <label for="mazeName" class="form-label me-2 mb-0">Nazwa labiryntu:</label>
+                <div class="d-flex align-items-center mb-2">
+                    <input type="text" id="mazeName" class="form-control me-2" placeholder="Wprowadź nazwę labiryntu" style="width: 60%;" />
+                    <button id="saveMazeBtn" class="btn btn-warning">Zapisz</button>
+                </div>
+                <!-- Pole na komunikat -->
+                <div id="saveMessage" class="mt-2" style="display: none;"></div>
+            </div>
+            <div class="mb-4" id="loadContainer">
+                <label for="savedMazes" class="form-label mb-2">Wybierz zapisany labirynt:</label>
+                <div class="d-flex align-items-center mb-2">
+                    <select id="savedMazes" class="form-select me-2" style="width: 60%;">
+                        <option value="" disabled selected>Wybierz labirynt...</option>
+                    </select>
+                    <button id="loadMazeBtn" class="btn btn-primary me-2">Załaduj</button>
+                    <button id="deleteMazeBtn" class="btn btn-danger">Usuń</button>
+                </div>
+                <div id="loadMessage" class="mt-2" style="display: none;"></div>
+            </div>
+
+
+
+
+
+
+
+        <% } %>
+    </div>
+</div>
+
+<script src="/js/maze.js"></script>

@@ -1,0 +1,13 @@
+# Foldery IDE
+.idea/
+
+# Folder node_modules
+node_modules/
+
+# Pliki konfiguracyjne specyficzne dla środowiska
+
+dataSources.local.xml
+dataSources.xml
+
+# Wszelkie pliki tymczasowe
+*.log

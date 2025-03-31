@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="card p-4 shadow-lg bg-dark text-white" style="max-width: 30rem; margin: auto;">
+        <h2 class="text-center mb-4">Profil Użytkownika</h2>
+
+        <!-- Sekcja nazwy użytkownika -->
+        <div class="mb-3 text-center">
+            <p style="font-size: 1.5rem;">
+                <strong>Użytkownik:</strong> <span><%= username %></span>
+            </p>
+        </div>
+
+        <!-- Sekcja zmiany hasła -->
+        <div class="mt-4">
+            <h4 class="text-center mb-3">Zmień hasło</h4>
+            <form id="changePasswordForm">
+                <div class="mb-3">
+                    <label for="oldPassword" class="form-label">Stare hasło</label>
+                    <input type="password" id="oldPassword" name="oldPassword" class="form-control bg-dark text-white border-light" required>
+                </div>
+                <div class="mb-3">
+                    <label for="newPassword" class="form-label">Nowe hasło</label>
+                    <input type="password" id="newPassword" name="newPassword" class="form-control bg-dark text-white border-light" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-outline-success">Zmień hasło</button>
+                </div>
+                <div id="errorMessage" class="text-danger text-center invisible pt-2" style="font-size: 0.9rem;"></div>
+                <div id="successMessage" class="text-success text-center invisible pt-2" style="font-size: 0.9rem;"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/profile.js"></script>

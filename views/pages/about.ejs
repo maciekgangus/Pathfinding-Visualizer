@@ -1,0 +1,100 @@
+<div class="container my-4">
+    <h1 class="text-center mb-4">Opis Aplikacji</h1>
+
+    <section>
+        <h2 class="mt-4">Działanie aplikacji</h2>
+        <p>
+            Aplikacja umożliwia generowanie labiryntów, wizualizację algorytmów przeszukiwania oraz zarządzanie zapisanymi labiryntami.
+            Została zaprojektowana z myślą o użytkownikach, którzy chcą lepiej zrozumieć działanie algorytmów wyszukiwania ścieżek
+            oraz narzędzi interaktywnych.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="mt-4">Generowanie labiryntów</h2>
+        <p>
+            Labirynty są generowane za pomocą algorytmu DFS (Depth-First Search). Proces generowania działa w następujących krokach:
+        </p>
+        <ol>
+            <li>
+                Zaczynamy od losowego punktu na krawędzi siatki.
+            </li>
+            <li>
+                Algorytm przechodzi do losowo wybranego sąsiada, o ile nie został on wcześniej odwiedzony.
+                Podczas przejścia usuwana jest ściana między bieżącą komórką a sąsiadem, tworząc otwór w labiryncie.
+            </li>
+            <li>
+                Kiedy algorytm napotka martwy punkt (brak nieodwiedzonych sąsiadów), wraca do poprzednich komórek,
+                aż znajdzie nową możliwą ścieżkę.
+            </li>
+            <li>
+                Proces powtarza się, aż wszystkie komórki zostaną odwiedzone.
+            </li>
+        </ol>
+        <p>Po wygenerowaniu labiryntu algorytm losowo otwiera kilka ścian, aby zwiększyć złożoność labiryntu.</p>
+    </section>
+
+    <section>
+        <h2 class="mt-4">Algorytmy wyszukiwania</h2>
+        <p>
+            Aplikacja obsługuje cztery różne algorytmy przeszukiwania ścieżek, z których każdy działa w specyficzny sposób:
+        </p>
+
+        <h3 class="mt-3">1. DFS (Depth-First Search)</h3>
+        <p>
+            Algorytm DFS eksploruje labirynt w głąb, wybierając jedną ścieżkę i podążając nią tak daleko, jak to możliwe, zanim wróci, aby
+            zbadać alternatywne ścieżki. Działa rekurencyjnie lub z wykorzystaniem stosu. Nie gwarantuje znalezienia najkrótszej ścieżki.
+        </p>
+        <ul>
+            <li><strong>Zalety:</strong> Prosty do zaimplementowania, szybki dla małych labiryntów.</li>
+            <li><strong>Wady:</strong> Nieefektywny dla dużych labiryntów; nie znajduje najkrótszej ścieżki.</li>
+        </ul>
+
+        <h3 class="mt-3">2. BFS (Breadth-First Search)</h3>
+        <p>
+            BFS przeszukuje labirynt wszerz, odwiedzając wszystkie komórki w danej warstwie przed przejściem do kolejnej.
+            Korzysta z kolejki, aby zapamiętać komórki do odwiedzenia. BFS gwarantuje znalezienie najkrótszej ścieżki, o ile istnieje.
+        </p>
+        <ul>
+            <li><strong>Zalety:</strong> Gwarantuje najkrótszą ścieżkę.</li>
+            <li><strong>Wady:</strong> Może być wolny w przypadku dużych labiryntów.</li>
+        </ul>
+
+        <h3 class="mt-3">3. Algorytm Dijkstry</h3>
+        <p>
+            Algorytm Dijkstry znajduje najkrótszą ścieżkę, uwzględniając koszty przemieszczania się między komórkami (w tym przypadku stały koszt).
+            Algorytm działa na zasadzie odwiedzania komórek w kolejności rosnącego kosztu dojścia, korzystając z priorytetowej kolejki.
+        </p>
+        <ul>
+            <li><strong>Zalety:</strong> Gwarantuje najkrótszą ścieżkę.</li>
+            <li><strong>Wady:</strong> Wolniejszy od A* dla dużych labiryntów.</li>
+        </ul>
+
+        <h3 class="mt-3">4. A* (A-Star)</h3>
+        <p>
+            Algorytm A* wykorzystuje funkcję heurystyczną, która estymuje odległość do celu, aby przyspieszyć wyszukiwanie.
+            Funkcja kosztu dla każdej komórki to suma rzeczywistego kosztu dojścia oraz szacowanej odległości do celu.
+        </p>
+        <ul>
+            <li><strong>Zalety:</strong> Szybszy od Dijkstry, gwarantuje najkrótszą ścieżkę.</li>
+            <li><strong>Wady:</strong> Wymaga dobrze dobranej funkcji heurystycznej.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="mt-4">Funkcjonalności aplikacji</h2>
+        <ul>
+            <li><strong>Rejestracja i logowanie:</strong> Możliwość zakładania kont i logowania się, co pozwala na zapisywanie indywidualnych labiryntów.</li>
+            <li><strong>Zmiana hasła:</strong> Bezpieczna zmiana hasła użytkownika w każdej chwili.</li>
+            <li><strong>Zapis labiryntów:</strong> Użytkownik może zapisywać labirynty z podaniem ich nazwy, koloru ścian i rozmiaru siatki.</li>
+            <li><strong>Usuwanie labiryntów:</strong> Możliwość zarządzania zapisanymi labiryntami przez ich usuwanie.</li>
+            <li><strong>Wczytywanie labiryntów:</strong> Opcja wyboru zapisanych labiryntów i ich odtworzenia z odpowiednimi ustawieniami.</li>
+            <li><strong>Zmiana punktów startowego i końcowego:</strong> Użytkownik może interaktywnie zmieniać punkty startowe i końcowe za pomocą:
+                <ul>
+                    <li>LPM (lewy przycisk myszy): ustawienie punktu startowego.</li>
+                    <li>PPM (prawy przycisk myszy): ustawienie punktu końcowego.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</div>
